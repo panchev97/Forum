@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Forum{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+    {% block navbar %}
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><b>Forum WebSite</b></a>
+                </div>
+
+                {% if app.user %}
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ path('home') }}" ><span class="glyphicon glyphicon-home"></span> <b>Home</b>   </a></li>
+                            <li><a href="{{ path('categories_list') }}" ><span class="glyphicon glyphicon-list"></span> <b>Categories</b>   </a></li>
+                            <li><a href="{{ path('topics_list') }}" ><span class="glyphicon glyphicon-stats"></span> <b>Recent Topics</b>   </a></li>
+                            <li><a href="{{ path('topic_add') }}" ><span class="glyphicon glyphicon-plus"></span> <b>Add Topic</b>   </a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <li><a href="{{ path('app_adminpanel_adminpanel') }}"><span class="glyphicon glyphicon-tower"></span><b> Admin Panel</b></a></li>
+                            {% endif %}
+                            <li><a href="/logout"><b>Logout  </b><span class="glyphicon glyphicon-log-out"></span> </a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('home') }}" ><span class="glyphicon glyphicon-home"></span> <b>Home</b>  </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('fos_user_security_login') }}"><b>Sign In</b> <span class="glyphicon glyphicon-log-in"></span></a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}"><b>Register</b> <span class="glyphicon glyphicon-registration-mark"></span> </a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+                {% endif %}
+            </div><!--/.container-fluid -->
+        </nav>
+    {% endblock %}
+        {% block body %}
+        {% endblock %}
+
+        {% block footer %}
+            <hr>
+            <footer>
+                <div class="well well-lg">
+                    <div style="text-align: center;">
+                        <b>Forum Website Created By Rumen Panchev. No Rights Reserved :(</b>
+                        <br>
+                        <b>GitHub Project Link</b>
+
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
+    </body>
+</html>

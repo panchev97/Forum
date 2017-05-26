@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+    <h2 class="h1">Admin Panel</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><span class="h3">Users Administration</span></div>
+                <div class="panel-body">
+                    <a href="{{ path('admin_users') }}" class="btn btn-block btn-primary">
+                        Administrate <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><span class="h3">Categories Administration</span></div>
+                <div class="panel-body">
+                    <a href="{{ path('admin_categories') }}" class="btn btn-block btn-primary">
+                        Administrate <span class=" glyphicon glyphicon-list"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><span class="h3">Topics Administration</span></div>
+                <div class="panel-body">
+                    <a href="{{ path('admin_topics') }}" class="btn btn-block btn-primary">
+                        Administrate <span class="glyphicon glyphicon-stats"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

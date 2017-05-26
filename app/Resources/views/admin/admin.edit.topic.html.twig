@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="well well-sm">
+                    <h1>Edit Topic</h1>
+                    <hr>
+                    {{ form_start(editTopicForm) }}
+                    {{ form_widget(editTopicForm) }}
+                    <button class="btn btn-warning" type="submit">Edit Topic <span class="glyphicon glyphicon-plus"></span> </button>
+                    {{ form_end(editTopicForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="alert alert-success">{{ flash_message }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% for category in categories %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><span class="h3">Category {{ category.name }}
+                            <a href="/admin/category/edit/{{ category.id }}" class="btn btn-warning">Edit Category</a>
+                            <a href="/admin/category/delete/{{ category.id }}" class="btn btn-danger">Delete Category</a> </span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="container">
+        <a href="{{ path('category_add') }}" class="btn btn-primary btn-lg btn-block">Add Category</a>
+    </div>
+{% endblock %}

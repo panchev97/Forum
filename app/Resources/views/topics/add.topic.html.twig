@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="well well-sm">
+                    <h1>Add Topic</h1>
+                    <hr>
+                    {{ form_start(topicForm) }}
+                    {{ form_widget(topicForm) }}
+                    <button class="btn btn-primary" type="submit">Add Topic <span class="glyphicon glyphicon-plus"></span> </button>
+                    {{ form_end(topicForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

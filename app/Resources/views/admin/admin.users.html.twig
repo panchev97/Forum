@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="alert alert-success">{{ flash_message }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Picture</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><img src="/images/users/{{ user.image }}" width="150" height="80"></td>
+                    <td>
+                        <a href="/admin/user/delete/{{ user.id }}" class="btn btn-danger">Delete User</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

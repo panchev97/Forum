@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <div class="row">
+            <div class="col-md-12">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="alert alert-success">{{ flash_message }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Simple Forum Site <span class="glyphicon glyphicon-globe"></span></h1>
+            <p>A place where people can leave messages or discuss particular subjects with other people at the same time.</p>
+        </div>
+        <p><i><b>Discussion forums are a way of contacting people with similar interests from all over the world.</b></i></p>
+        <p><i><b>Use the full forum functionality just by Login/Register..</b></i></p>
+    </div>
+{% endblock %}
